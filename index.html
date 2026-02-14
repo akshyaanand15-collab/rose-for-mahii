@@ -2,192 +2,200 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Love Story ❤️</title>
+<title>Our Love World 💕</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg,#ffd6e8,#fff1f7,#e0f7ff);
-  overflow: hidden;
-  text-align: center;
-  color: #ff4d6d;
-  transition: 1s;
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#ffd6e8,#fff1f7,#e0f7ff);
+overflow:hidden;
+text-align:center;
+color:#ff4d6d;
 }
 
-/* Floating hearts & kisses */
-.floating {
-  position: absolute;
-  font-size: 22px;
-  animation: float 8s linear infinite;
-  opacity: 0.7;
+/* Section system */
+.section{
+position:absolute;
+width:100%;
+height:100vh;
+display:none;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+animation:fade 0.8s ease forwards;
+padding:20px;
 }
 
-@keyframes float {
-  from { transform: translateY(100vh); }
-  to { transform: translateY(-10vh); }
+.active{display:flex;}
+
+@keyframes fade{
+from{opacity:0; transform:scale(0.95);}
+to{opacity:1; transform:scale(1);}
 }
 
-/* Sections */
-.section {
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  animation: fadeIn 1s ease forwards;
+/* Anime */
+.anime{
+font-size:90px;
+animation:bounce 2s infinite alternate;
 }
 
-.active { display: flex; }
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+@keyframes bounce{
+from{transform:translateY(-12px);}
+to{transform:translateY(12px);}
 }
 
 /* Buttons */
-button {
-  padding: 12px 25px;
-  margin: 10px;
-  border-radius: 30px;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
+button{
+padding:12px 28px;
+margin:12px;
+border-radius:30px;
+border:none;
+font-size:15px;
+cursor:pointer;
+box-shadow:0 6px 15px rgba(0,0,0,0.1);
+transition:0.3s;
 }
 
-.yes { background: #ff4d6d; color:white; }
-.no { background: white; color:#ff4d6d; border:2px solid #ff4d6d; }
-.videoBtn { background:white; color:#ff4d6d; border:2px solid #ff4d6d; }
-
-/* Video Frame */
-.videoFrame {
-  border: 8px solid white;
-  border-radius: 25px;
-  padding: 10px;
-  background: rgba(255,255,255,0.6);
-  box-shadow: 0 0 25px rgba(255,77,109,0.5);
+button:hover{
+transform:scale(1.07);
 }
 
-video {
-  width: 85%;
-  border-radius: 20px;
+.yes{background:#ff4d6d;color:white;}
+.no{background:white;color:#ff4d6d;border:2px solid #ff4d6d;}
+.softBtn{background:#ffffff;color:#ff4d6d;border:2px solid #ff4d6d;}
+
+/* Memories */
+.memoriesContainer{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+overflow-y:auto;
+height:60vh;
+padding:10px;
 }
 
-/* Final Frame */
-.finalFrame {
-  background: rgba(255,255,255,0.8);
-  padding: 25px;
-  border-radius: 25px;
-  width: 85%;
-  max-width: 350px;
-  box-shadow: 0 0 35px rgba(255,77,109,0.7);
-  border: 3px solid white;
+.videoFrame{
+border:6px solid white;
+border-radius:20px;
+padding:6px;
+background:rgba(255,255,255,0.85);
+box-shadow:0 0 25px rgba(255,77,109,0.4);
+margin:8px;
+transition:0.3s;
 }
 
-.finalText {
-  color: #ff4d6d;
-  font-size: 14px;
-  line-height: 1.6;
+.videoFrame:hover{
+transform:scale(1.05);
+}
+
+video{
+width:220px;
+border-radius:15px;
+}
+
+/* Final Cinematic */
+.finalSection{
+background:linear-gradient(135deg,#ffe0ec,#fff5fa,#e6faff);
+}
+
+.finalFrame{
+background:rgba(255,255,255,0.95);
+padding:30px;
+border-radius:30px;
+max-width:400px;
+box-shadow:0 0 45px rgba(255,77,109,0.7);
+border:3px solid white;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{box-shadow:0 0 25px rgba(255,77,109,0.4);}
+to{box-shadow:0 0 55px rgba(255,77,109,0.9);}
+}
+
+.finalText{
+font-size:15px;
+line-height:1.8;
+color:#ff4d6d;
+}
+
+.smallBtn{
+margin-top:20px;
+background:#ff4d6d;
+color:white;
 }
 </style>
 </head>
 
 <body>
 
-<!-- Background Music -->
-<audio autoplay loop>
-  <source src="bgm.mp3" type="audio/mpeg">
-</audio>
-
-<!-- Floating emojis -->
-<script>
-for(let i=0;i<30;i++){
-  let e=document.createElement("div");
-  e.className="floating";
-  e.innerHTML=["❤️","🤍","💋"][Math.floor(Math.random()*3)];
-  e.style.left=Math.random()*100+"vw";
-  e.style.animationDuration=(5+Math.random()*5)+"s";
-  document.body.appendChild(e);
-}
-</script>
-
-<!-- Intro -->
+<!-- INTRO -->
 <div class="section active" id="intro">
-  <h2>Mahiii ❤️</h2>
-  <p>Ready to play our love game? 😌</p>
-  <button class="yes" onclick="show('question')">Start 💕</button>
+<div class="anime">🧍‍♂️💞🧍‍♀️</div>
+<h2>Mahiii & Me 💕</h2>
+<button class="yes" onclick="show('game')">Start ✨</button>
 </div>
 
-<!-- Question -->
-<div class="section" id="question">
-  <h2>Unakku enna pidikkuma? 🥺</h2>
-  <button class="yes" onclick="yesScene()">YES ❤️</button>
-  <button class="no" onclick="noScene()">NO 😏</button>
+<!-- GAME -->
+<div class="section" id="game">
+<div class="anime">🥺💖</div>
+<h2>Unakku enna pidikkuma?</h2>
+<button class="yes" onclick="show('yesAnime')">YES ❤️</button>
+<button class="no" onclick="show('noAnime')">NO 😏</button>
 </div>
 
 <!-- YES -->
-<div class="section" id="yes">
-  <h2>I knew it 😍</h2>
-  <div class="videoFrame">
-    <video controls autoplay>
-      <source src="video1.mp4" type="video/mp4">
-    </video>
-  </div>
-  <button class="videoBtn" onclick="show('voice')">Listen My Heart 💌</button>
+<div class="section" id="yesAnime">
+<div class="anime">😍💋</div>
+<h2>I knew it 😌💕</h2>
+<button class="softBtn" onclick="show('memories')">The Memories 💞</button>
 </div>
 
 <!-- NO -->
-<div class="section" id="no">
-  <h2>NO ah? 😭</h2>
-  <p>My heart broke a little 💔</p>
-  <div class="videoFrame">
-    <video controls autoplay>
-      <source src="video2.mp4" type="video/mp4">
-    </video>
-  </div>
-  <button class="yes" onclick="yesScene()">Okay Fine YES 😅</button>
+<div class="section" id="noAnime">
+<div class="anime">😒💔</div>
+<h2>No ah?</h2>
+<p>Yes click pannu da 😌</p>
+<button class="yes" onclick="show('game')">Okay okay 😅</button>
 </div>
 
-<!-- Voice -->
-<div class="section" id="voice">
-  <h2>One last thing… 🤍</h2>
-  <button class="yes" onclick="playVoice()">Play My Voice 💋</button>
-  <audio id="voiceNote">
-    <source src="voice.mp3" type="audio/mpeg">
-  </audio>
+<!-- MEMORIES -->
+<div class="section" id="memories">
+<h2>Our Memories 💖</h2>
+
+<div class="memoriesContainer">
+<div class="videoFrame"><video controls src="video1.mp4"></video></div>
+<div class="videoFrame"><video controls src="video2.mp4"></video></div>
+<div class="videoFrame"><video controls src="video3.mp4"></video></div>
+<div class="videoFrame"><video controls src="video4.mp4"></video></div>
+<div class="videoFrame"><video controls src="video5.mp4"></video></div>
+<div class="videoFrame"><video controls src="video6.mp4"></video></div>
+<div class="videoFrame"><video controls src="video7.mp4"></video></div>
+<div class="videoFrame"><video controls src="video8.mp4"></video></div>
 </div>
 
-<!-- Final Note -->
-<div class="section" id="finalNote">
-  <div class="finalFrame">
-    <h2>One More Thing… 🤍</h2>
-    <p class="finalText">
-      Enaku kedaikatha ellathaiyum nee kudukra...<br><br>
-      Incase evlo nee enna vittu velagi ponaalum,<br>
-      naan unna vittu pove maten. 🤍
-    </p>
-  </div>
+<button class="yes" onclick="show('finalNote')">Next 🤍</button>
+</div>
+
+<!-- FINAL NOTE -->
+<div class="section finalSection" id="finalNote">
+<div class="finalFrame">
+<h2>One More Thing… 🤍</h2>
+<p class="finalText">
+Enaku kedaikatha ellathaiyum nee kudukra…<br><br>
+Incase evlo nee enna vittu velagi ponaalum,<br>
+naan unna vittu pove maten. 🤍<br><br>
+Forever.
+</p>
+<button class="smallBtn" onclick="show('intro')">Replay 💕</button>
+</div>
 </div>
 
 <script>
 function show(id){
-  document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
-}
-function yesScene(){
-  show("yes");
-}
-function noScene(){
-  show("no");
-}
-function playVoice(){
-  const voice=document.getElementById("voiceNote");
-  voice.play();
-  voice.onended=function(){
-    show("finalNote");
-  }
+document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+document.getElementById(id).classList.add("active");
 }
 </script>
 
